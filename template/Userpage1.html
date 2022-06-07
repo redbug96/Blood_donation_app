@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rapid Red Bucket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'userpage.css' %}"/>
+</head>
+<body>
+{% include 'header.html' %}
+<header>
+    <img src="https://www.afro.who.int/sites/default/files/inline-images/blood-drop-2%20copy.jpg"
+         alt="Five developers at work.">
+    <section class='hero-header-text'>
+        <h1>Welcome {{Name}}!</h1>
+        <div class="mx-auto pt-5 mt-5" style="width: 400px;">
+            <form action="update_profile" method="post" class="d-inline-block">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{Donor_id}}">
+                <input type="submit" value="Update Profile" class="btn btn-danger">
+            </form>
+            <form action="user_logout" method="post" class="d-inline-block">
+                {% csrf_token %}
+                <input type="submit" value="Logout" class="btn btn-dark mx-3">
+            </form>
+
+        </div>
+    </section>
+</header>
+
+</body>
+</html>

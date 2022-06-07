@@ -1,0 +1,31 @@
+.background1 {
+     background: url('blood_donation_1.jpg') fixed;
+     background-size: cover;
+}
+.background{
+background: url("https://www.afro.who.int/sites/default/files/inline-images/blood-drop-2%20copy.jpg") fixed;
+     background-size: cover;
+}
+h1{
+color:#CB1F1F;
+
+}
+*[role="form"] {
+    max-width: 780px;
+    padding: 30px;
+    margin: 0 0 0 auto;
+    border-radius: 0.3em;
+    background-color: #f2f2f2;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+*[role="form"] h2 {
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 5%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}

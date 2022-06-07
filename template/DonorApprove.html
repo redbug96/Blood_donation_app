@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rapid Red Bucket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+{% include 'header.html' %}
+{% if donors %}
+<div class="mx-5 my-3">
+    <h3 class="text-center">New Donors - Waiting for Approval </h3><br>
+    <table class="table table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>GENDER</th>
+            <th>BLOOD GROUP</th>
+            <th>DISTRICT</th>
+            <th>MOBILE NUMBER</th>
+            <th>EMAIL ID</th>
+            <th>PHOTO</th>
+            <th>HEALTH RELATED PROBLEMS</th>
+            <th></th>
+        </tr>
+        </thead>
+        {% for i in donors %}
+        <tr class="align-middle text-center">
+            <td>{{i.Name}}</td>
+            <td>{{i.Age}}</td>
+            <td>{{i.Gender}}</td>
+            <td>{{i.Blood_group}}</td>
+            <td>{{i.District}}</td>
+            <td>{{i.Mobile_number}}</td>
+            <td>{{i.Mail_id}}</td>
+            <td><img src="{{i.Photo.url}}" height="200" width="200"></td>
+            <td>{{i.Health_issue}}</td>
+            <td>
+                <form action="approve" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{i.id}}">
+                    <input type="submit" value="Approve" class="btn btn-danger">
+
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+
+
+    </table>
+    <br><br>
+    {% else %}
+    <div class="m-5">
+        <h4 class="alert alert-info text-center">No donors to approve</h4>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
+
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'design.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+
+
+</head>
+<body class="background1">
+
+<div>
+    <form action="saving_form_data" method="post" enctype="multipart/form-data" role="form">
+        <h1 class="text-center">Blood Donor Registration: </h1>
+        {% if error %}
+        <h5>Registration failed due to following reason.</h5>
+        <div style="color:red;">{{error}}</div>
+        {% endif %}
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name :</label>
+            <input type="text" class="form-control" id="name" name="name1" required><br><br>
+        </div>
+        <div class="form-group">
+            <label for="age">Age :</label>
+            <input type="number" class="form-control" id="age" name="age1" min="18" max="65" required><br><br>
+        </div>
+        <div class="form-group">
+            <label>Gender :</label>
+            <div>
+                <div class="form-check form-check-inline align-top">
+                    <input type="radio" class="form-check-input" id="male1" name="gender1" value="Male" required>
+                    <label class="form-check-label" for="male1">Male </label>
+                </div>
+                <div class="form-check form-check-inline align-top">
+                    <input type="radio" class="form-check-input" id="female1" name="gender1" value="Female">
+                    <label class="form-check-label" for="female1">Female </label><br><br>
+                </div>
+            </div>
+        </div>
+        <label for="blood">Blood Group :</label>
+        <select class="form-select" id="blood" name="blood1" required>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+
+        </select><br><br>
+        <label for="district">District :</label>
+        <select class="form-select" id="district" name="district1" required>
+            <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+            <option value="Kollam">Kollam</option>
+            <option value="Pathanamthitta">Pathanamthitta</option>
+            <option value="Alappuzha">Alappuzha</option>
+            <option value="Kottayam">Kottayam</option>
+            <option value="Idukki">Idukki</option>
+            <option value="Ernakulam">Ernakulam</option>
+            <option value="Thrissur">Thrissur</option>
+            <option value="Palakkad">Palakkad</option>
+            <option value="Malappuram">Malappuram</option>
+            <option value="Kozhikode">Kozhikode</option>
+            <option value="Wayanad">Wayanad</option>
+            <option value="Kannur">Kannur</option>
+            <option value="Kasargod">Kasargod</option>
+
+        </select><br><br>
+        <div class="form-group">
+            <label for="number">Mobile Number :</label>
+            <input type="text" class="form-control" id="number" name="number1" required><br><br>
+        </div>
+        <div class="form-group">
+            <label for="emailID">Email ID :</label>
+            <input type="email" class="form-control" id="emailID" name="emailID1" placeholder="Your Email" required><br><br>
+        </div>
+            <div class="mb-3">
+                <label class="form-label" for="photo">Upload your Photo :</label>
+                <input type="file" class="form-control" id="photo" name="photo1" required><br><br>
+            </div>
+            <div class="form-group">
+                <label for="name">Do you have any health related problems? :</label><br>
+                <textarea class="form-control" rows="3" cols="40" id="health" name="health1"></textarea><br><br>
+            </div>
+            <label>Create a username and password here.</label><br><br>
+            <div class="form-group">
+                <label for="username">Username :</label>
+                <input type="text" class="form-control" id="username" name="username1" required><br><br>
+            </div>
+            <div class="form-group">
+                <label for="pswd">Password :</label>
+                <input type="password" class="form-control" id="pswd" name="pswd1" required><br><br><br>
+            </div>
+
+            <div class="col-md-12 text-center">
+                <input type="submit" class="btn btn-danger btn-lg" value="Submit">
+            </div>
+
+
+    </form>
+</div>
+</body>
+</html>

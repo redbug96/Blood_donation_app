@@ -1,0 +1,16 @@
+header img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(.4);
+}
+
+
+section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}

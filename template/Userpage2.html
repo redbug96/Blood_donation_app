@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rapid Red Bucket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+{% include 'header.html' %}
+<div class="text-center mx-5 my-5">
+    <h1 style="color:#CA3535;">Urgent Blood Request...!!!</h1><br>
+    <h3>We need {{BloodGroup}} group blood Urgently...<br><br>
+        If you are willing to donate blood Please accept this request.
+
+    </h3><br>
+    <form action="accept_request" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{id}}">
+        <input type="submit" value="Accept Request" class="btn btn-success">
+    </form>
+    <br><br>
+    <form action="reject_request" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{id}}">
+        <input type="submit" value="Reject Request" class="btn btn-dark">
+
+</div>
+</body>
+</html>
